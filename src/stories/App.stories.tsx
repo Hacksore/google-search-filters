@@ -1,9 +1,9 @@
 import React from "react";
 
-import { App } from "../App";
+import Inject from "../pages/inject";
 
 export default {
   title: "Google Search Filters",
 };
 
-export const MainView = () => <App />;
+export const InjectView = () => <Inject />;

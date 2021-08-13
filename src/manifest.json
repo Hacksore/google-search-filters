@@ -1,19 +1,11 @@
 {
-  "name": "Google Search Filters",
-  "version": "1.0.0",
-  "manifest_version": 3,
-  "description": "Allow for google filters right from the search page",
-  "homepage_url": "https://github.com/hacksore/google-search-filters",
-  "icons": {
-    "128": "icons/icon128.png"
-  },
+  "name": "Google Search Filter",
+  "background": { "scripts": ["background/index.ts"] },
   "content_scripts": [
     {
-      "matches": ["https://www.google.com/*"],
-      "js": ["build/index.js"]
+      "js": ["content/index.tsx"],
+      "matches": ["https://*/*", "http://*/*"]
     }
   ],
-  "host_permissions": [
-    "https://www.google.com/*"
-  ]
+  "browser_action": { "default_popup": "pages/popup/index.html" }
 }

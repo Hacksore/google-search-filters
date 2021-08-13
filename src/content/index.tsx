@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
+import Inject from "../pages/inject";
 
 // TODO: this might need an obeserve to better help it handle edge cases when it wont load
-const rootElement = document.getElementById("extabar");
+const rootElement = document.getElementById("search");
 
 const appDiv = document.createElement("div");
 appDiv.id = "gsf-app-root";
-rootElement.appendChild(appDiv);
 
-console.log("[GSF] content script loaded")
+if (rootElement) {
+  rootElement.prepend(appDiv);
+}
 
-ReactDOM.render(<App />, appDiv);
+console.log("[GSF] content script loaded");
+
+ReactDOM.render(<Inject />, appDiv);
