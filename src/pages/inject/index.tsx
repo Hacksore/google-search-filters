@@ -1,13 +1,35 @@
 import React from "react";
-import { Button } from "@material-ui/core";
+import {
+  makeStyles,
+  ThemeProvider,
+} from "@material-ui/core";
+import { theme } from "../../theme";
+import SitePicker from "../../components/SitePicker";
+// import Timeseries from "../../components/Timeseries";
+
+
+const useStyles = makeStyles((theme) => ({
+  main: {
+    width: "80%",
+    height: 50,
+    display: "flex",
+  },
+  form: {
+    width: 130
+  }
+}));
+
 
 const Inject = () => {
+  const classes = useStyles();
+
   return (
-    <div style={{ width: "80%" }}>
-      <Button color="primary" size="small" variant="outlined">Sort by Time</Button>
-      <Button color="primary" size="small" variant="outlined">TODO</Button>
-      <Button color="primary" size="small" variant="outlined">TODO</Button>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className={classes.main}>
+        {/* <Timeseries /> */}
+        <SitePicker />
+      </div>
+    </ThemeProvider>
   );
 };
 

@@ -6,4 +6,8 @@ export default {
   title: "Google Search Filters",
 };
 
-export const InjectView = () => <Inject />;
+export const InjectView = () => (
+  <div style={{ background: "#000" }}>
+    <Inject />
+  </div>
+);

@@ -4,6 +4,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import replace from "@rollup/plugin-replace";
+import image from "@rollup/plugin-image";
 
 import {
   chromeExtension,
@@ -29,6 +30,7 @@ export default {
       "process.env.NODE_ENV": JSON.stringify("development"),
       preventAssignment: true,
     }),
+    image(),
     resolve(),
     commonjs(),
     typescript(),

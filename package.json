@@ -2,25 +2,14 @@
   "name": "google-search-filter",
   "version": "1.0.0",
   "private": true,
-  "description": "Chrome extension boilerplate with TypeScript and React",
-  "keywords": [
-    "chrome-extension",
-    "web-extension",
-    "typescript",
-    "react",
-    "rollup",
-    "boilerplate"
-  ],
-  "homepage": "https://github.com/extend-chrome/ts-react-boilerplate#readme",
-  "bugs": {
-    "url": "https://github.com/extend-chrome/ts-react-boilerplate/issues"
-  },
+  "description": "Chrome extension to add more filters to a search page",
+  "homepage": "https://github.com/Hacksore/google-search-filters#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/extend-chrome/ts-react-boilerplate.git"
+    "url": "git+https://github.com/Hacksore/google-search-filters.git"
   },
   "license": "MIT",
-  "author": "Jack Steam<jacksteamdev@gmail.com>",
+  "author": "Hacksore",
   "scripts": {
     "build": "rollup -c",
     "release": "cross-env NODE_ENV=production rollup -c",
@@ -30,12 +19,18 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@types/chrome": "^0.0.127",
     "@types/firefox-webext-browser": "^82.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "clsx": "^1.1.1",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -45,6 +40,7 @@
     "@babel/core": "^7.15.0",
     "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-image": "^2.1.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.1.0",
