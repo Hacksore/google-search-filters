@@ -1,7 +1,10 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 # BUG via https://github.com/redhat-developer/vscode-yaml/issues/565
-name: Release to webstore
+name: Build and Package
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
