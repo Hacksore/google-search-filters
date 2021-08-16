@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# BUG via https://github.com/redhat-developer/vscode-yaml/issues/565
+name: Release to webstore
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm ci
+      - run: npm run build
+      - name: "Create zip file"
+        run: zip -r google-search-filter.zip dist/ -x ".github/*" -x ".git/*"
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v2
+        with:
+          name: google-search-filter.zip
+          path: google-search-filter.zip
+          retention-days: 5
+  # publish:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download extension artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: google-search-filter
+  #     - name: Publish to chrome web store
+  #       uses: trmcnvn/chrome-addon@v2
+  #       continue-on-error: true
+  #       with:
+  #         extension: fcmmijpbclnjkhkoagbohnkclkcdnfml
+  #         zip: google-search-filter
+  #         client-id: ${{ secrets.CHROME_CLIENT_ID }}
+  #         client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+  #         refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
